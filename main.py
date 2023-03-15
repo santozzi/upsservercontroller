@@ -90,4 +90,6 @@ while True:
         print(Fore.RED + estado.get_text(), '-', hora_actual, '-', fecha_actual)
     elif estado.get_text() == "On Line":
         print(Fore.GREEN + estado.get_text(), '-', hora_actual, '-', fecha_actual)
+    else:
+        print(Fore.YELLOW + estado.get_text(), '-', hora_actual, '-', fecha_actual)
 
