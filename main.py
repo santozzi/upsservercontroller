@@ -12,8 +12,8 @@ mac_address = 'E0:69:95:57:27:72'
 mac_server1_a = '1C:98:EC:52:D9:BC'
 mac_server2 = '9C:DC:71:AF:52:10'
 mac_server3 = '94:18:82:16:65:F4'
-
-tiempo_espera_antes_de_prender = 60
+#tiempo prudencial de 15 minutos
+tiempo_espera_antes_de_prender = 15*60
 def wakeOnLan(mac):
     send_magic_packet(mac)
 
@@ -126,6 +126,7 @@ os.system('cls')
 print(Fore.BLUE + titulo())
 
 estadoOnLine = True
+
 while True:
     time.sleep(tiempo_de_espera)
     fecha_actual = datetime.date.today()
