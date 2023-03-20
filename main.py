@@ -34,6 +34,7 @@ ruta = "C:/\"Program Files (x86)\"/Citrix/XenCenter/"
 commandBaseXe ='xe.exe -s '+ip_servidor+' -u root -pw ems867 '
 
 file_server_ciclo_1 = '93b473b5-8124-1a3b-c39e-fe47e5acc8e7'
+file_server_ciclo_3 = 'f7eb3e71-87f0-c47f-302f-3aad57b47db1'
 windows_server_2012_ciclo_1 = '23cd0b53-b572-77bc-ac32-185920e83f71'
 
 windows_server_2012_ciclo_2 = '755a1b76-afc0-44c9-bd70-4058015dcb11'
@@ -150,11 +151,12 @@ while True:
                 wakeOnLan(mac_server1_a)
                 wakeOnLan(mac_server2)
                 wakeOnLan(mac_server3)
-                time.sleep(5*60)
+                time.sleep(3*60)
                 encendidoVMServer(file_server_ciclo_1)
                 encendidoVMServer(windows_server_2012_ciclo_1)
                 encendidoVMServer(windows_server_2012_ciclo_2)
                 encendidoVMServer(windows_server_2012_ciclo_3)
+                encendidoVMServer(file_server_ciclo_3)
                 estadoOnLine=True
 
 
