@@ -13,7 +13,7 @@ mac_server1_a = '1C:98:EC:52:D9:BC'
 mac_server2 = '9C:DC:71:AF:52:10'
 mac_server3 = '94:18:82:16:65:F4'
 
-tiempo_espera_antes_de_prender = 15*60
+tiempo_espera_antes_de_prender = 60
 def wakeOnLan(mac):
     send_magic_packet(mac)
 
@@ -31,7 +31,14 @@ apc =sesion.get(url, verify=False, headers={'Cache-Control': 'no-cache'})
 key_cookie = sesion.cookies.keys()[0]
 value_cookie = sesion.cookies[key_cookie]
 ruta = "C:/\"Program Files (x86)\"/Citrix/XenCenter/"
-commandBaseXe =os.path.dirname(ruta)+'/xe.exe -s '+ip_servidor+' -u root -pw ems867 '
+commandBaseXe ='xe.exe -s '+ip_servidor+' -u root -pw ems867 '
+
+file_server_ciclo_1 = '93b473b5-8124-1a3b-c39e-fe47e5acc8e7'
+windows_server_2012_ciclo_1 = '23cd0b53-b572-77bc-ac32-185920e83f71'
+
+windows_server_2012_ciclo_2 = '755a1b76-afc0-44c9-bd70-4058015dcb11'
+windows_server_2012_ciclo_3 = 'fe4e6727-81e0-7f57-98d9-1bb386d03705'
+
 imagenXe = 'fe4e6727-81e0-7f57-98d9-1bb386d03705'
 XenServerCiclo1 = '3bbba09d-5ae7-4d38-977c-934202a6c965'
 XenServerCiclo2 = 'dccf4482-5b41-4c99-a9bb-76f5916a4df4'
@@ -56,7 +63,8 @@ def loggeo():
 def getStatus():
     return sesion.get(status_url, cookies={key_cookie: value_cookie}, verify=False)
 
-
+def encendidoVMServer(server):
+    os.system( commandBaseXe + 'vm-start uuid='+server)
 def titulo():
     return """
 #   /$$   /$$/$$$$$$$  /$$$$$$                                                          
@@ -142,6 +150,11 @@ while True:
                 wakeOnLan(mac_server1_a)
                 wakeOnLan(mac_server2)
                 wakeOnLan(mac_server3)
+                time.sleep(5*60)
+                encendidoVMServer(file_server_ciclo_1)
+                encendidoVMServer(windows_server_2012_ciclo_1)
+                encendidoVMServer(windows_server_2012_ciclo_2)
+                encendidoVMServer(windows_server_2012_ciclo_3)
                 estadoOnLine=True
 
 
