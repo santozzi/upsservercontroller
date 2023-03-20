@@ -135,7 +135,7 @@ while True:
         print(Fore.RED + estado.get_text(), '-', hora_actual, '-', fecha_actual)
     elif estado.get_text() == "On Line":
 
-        print(Fore.GREEN + estado.get_text(), '-', hora_actual, '-', fecha_actual)
+
         if estadoOnLine==False:
             time.sleep(tiempo_espera_antes_de_prender)
             if estado.get_text() == "On Line":
@@ -143,7 +143,6 @@ while True:
                 wakeOnLan(mac_server2)
                 wakeOnLan(mac_server3)
                 estadoOnLine=True
-    else:
-        print(Fore.YELLOW + estado.get_text(), '-', hora_actual, '-', fecha_actual)
+
 
 
